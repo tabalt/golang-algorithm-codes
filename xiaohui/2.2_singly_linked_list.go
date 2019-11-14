@@ -86,7 +86,7 @@ func (sll *SinglyLinkdedList) Delete(idx int) *SinglyNode {
 		prevNode := sll.Get(idx - 1)
 		deletedNode = prevNode.Next
 
-		prevNode.Next = prevNode.Next.Next
+		prevNode.Next = deletedNode.Next
 	}
 	sll.Size--
 
