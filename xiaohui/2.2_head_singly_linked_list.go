@@ -5,7 +5,7 @@ type HeadSinglyLinkdedList struct {
 	Head  *SinglyNode
 	pLast *SinglyNode
 
-	Size int
+	size int
 }
 
 func NewHeadSinglyLinkdedList() *HeadSinglyLinkdedList {
@@ -14,14 +14,18 @@ func NewHeadSinglyLinkdedList() *HeadSinglyLinkdedList {
 			Next: nil,
 		},
 		pLast: nil,
-		Size:  0,
+		size:  0,
 	}
+}
+
+func (hsll *HeadSinglyLinkdedList) Size() int {
+	return hsll.size
 }
 
 // T(n) = n = O(n)
 // S(n) = 1 = O(1)
 func (hsll *HeadSinglyLinkdedList) Get(idx int) *SinglyNode {
-	if idx < 0 || idx >= hsll.Size {
+	if idx < 0 || idx >= hsll.size {
 		return nil
 	}
 
@@ -36,7 +40,7 @@ func (hsll *HeadSinglyLinkdedList) Get(idx int) *SinglyNode {
 // T(n) = 1 = O(1) 	// ignore possible lookup operations
 // S(n) = 1 = O(1)
 func (hsll *HeadSinglyLinkdedList) Insert(idx, val int) {
-	if idx < 0 || idx > hsll.Size {
+	if idx < 0 || idx > hsll.size {
 		return
 	}
 
@@ -50,7 +54,7 @@ func (hsll *HeadSinglyLinkdedList) Insert(idx, val int) {
 	if idx == 0 {
 		insertNode.Next = hsll.Head.Next
 		hsll.Head.Next = insertNode
-	} else if idx == hsll.Size {
+	} else if idx == hsll.size {
 		hsll.pLast.Next = insertNode
 		hsll.pLast = insertNode
 	} else {
@@ -59,13 +63,13 @@ func (hsll *HeadSinglyLinkdedList) Insert(idx, val int) {
 		prevNode.Next = insertNode
 	}
 
-	hsll.Size++
+	hsll.size++
 }
 
 // T(n) = n = O(1) 	// ignore possible lookup operations
 // S(n) = 1 = O(1)
 func (hsll *HeadSinglyLinkdedList) Delete(idx int) *SinglyNode {
-	if idx < 0 || idx >= hsll.Size {
+	if idx < 0 || idx >= hsll.size {
 		return nil
 	}
 
@@ -74,7 +78,7 @@ func (hsll *HeadSinglyLinkdedList) Delete(idx int) *SinglyNode {
 		deletedNode = hsll.Head.Next
 
 		hsll.Head.Next = deletedNode.Next
-	} else if idx == hsll.Size-1 {
+	} else if idx == hsll.size-1 {
 		prevNode := hsll.Get(idx - 1)
 		deletedNode = prevNode.Next
 
@@ -86,7 +90,7 @@ func (hsll *HeadSinglyLinkdedList) Delete(idx int) *SinglyNode {
 
 		prevNode.Next = deletedNode.Next
 	}
-	hsll.Size--
+	hsll.size--
 
 	return deletedNode
 

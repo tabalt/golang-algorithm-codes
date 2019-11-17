@@ -1,9 +1,13 @@
 package xiaohui
 
+const (
+	ErrorIntValue = -999
+)
+
 func GetArray(arr *[]int, idx int) int {
 	a := *arr
 	if idx < 0 || idx >= len(a) {
-		return 0
+		return ErrorIntValue
 	}
 
 	return a[idx]
@@ -42,14 +46,17 @@ func InsertArray(arr *[]int, idx, val int) {
 
 // T(n) = n = O(n)
 // S(n) = 1 = O(1)
-func DeleteArray(arr *[]int, idx int) {
+func DeleteArray(arr *[]int, idx int) int {
 	a := *arr
 	if idx < 0 || idx >= len(a) {
-		return
+		return ErrorIntValue
 	}
 
+	deleted := a[idx]
 	for i := idx; i < len(a)-1; i++ {
 		a[i] = a[i+1]
 	}
 	a[len(a)-1] = 0
+
+	return deleted
 }

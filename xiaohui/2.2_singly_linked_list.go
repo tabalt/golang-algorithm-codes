@@ -9,21 +9,25 @@ type SinglyLinkdedList struct {
 	pHead *SinglyNode
 	pLast *SinglyNode
 
-	Size int
+	size int
 }
 
 func NewSinglyLinkdedList() *SinglyLinkdedList {
 	return &SinglyLinkdedList{
 		pHead: nil,
 		pLast: nil,
-		Size:  0,
+		size:  0,
 	}
+}
+
+func (sll *SinglyLinkdedList) Size() int {
+	return sll.size
 }
 
 // T(n) = n = O(n)
 // S(n) = 1 = O(1)
 func (sll *SinglyLinkdedList) Get(idx int) *SinglyNode {
-	if idx < 0 || idx >= sll.Size {
+	if idx < 0 || idx >= sll.size {
 		return nil
 	}
 
@@ -38,7 +42,7 @@ func (sll *SinglyLinkdedList) Get(idx int) *SinglyNode {
 // T(n) = 1 = O(1) 	// ignore possible lookup operations
 // S(n) = 1 = O(1)
 func (sll *SinglyLinkdedList) Insert(idx, val int) {
-	if idx < 0 || idx > sll.Size {
+	if idx < 0 || idx > sll.size {
 		return
 	}
 
@@ -46,13 +50,13 @@ func (sll *SinglyLinkdedList) Insert(idx, val int) {
 		Data: val,
 	}
 
-	if sll.Size == 0 {
+	if sll.size == 0 {
 		sll.pHead = insertNode
 		sll.pLast = insertNode
 	} else if idx == 0 {
 		insertNode.Next = sll.pHead
 		sll.pHead = insertNode
-	} else if idx == sll.Size {
+	} else if idx == sll.size {
 		sll.pLast.Next = insertNode
 		sll.pLast = insertNode
 	} else {
@@ -61,13 +65,13 @@ func (sll *SinglyLinkdedList) Insert(idx, val int) {
 		prevNode.Next = insertNode
 	}
 
-	sll.Size++
+	sll.size++
 }
 
 // T(n) = n = O(1) 	// ignore possible lookup operations
 // S(n) = 1 = O(1)
 func (sll *SinglyLinkdedList) Delete(idx int) *SinglyNode {
-	if idx < 0 || idx >= sll.Size {
+	if idx < 0 || idx >= sll.size {
 		return nil
 	}
 
@@ -76,7 +80,7 @@ func (sll *SinglyLinkdedList) Delete(idx int) *SinglyNode {
 		deletedNode = sll.pHead
 
 		sll.pHead = sll.pHead.Next
-	} else if idx == sll.Size-1 {
+	} else if idx == sll.size-1 {
 		deletedNode = sll.pLast
 
 		prevNode := sll.Get(idx - 1)
@@ -88,7 +92,7 @@ func (sll *SinglyLinkdedList) Delete(idx int) *SinglyNode {
 
 		prevNode.Next = deletedNode.Next
 	}
-	sll.Size--
+	sll.size--
 
 	return deletedNode
 

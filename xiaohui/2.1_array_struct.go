@@ -13,7 +13,7 @@ func (a *Array) Data() []int {
 	return a.data[:a.size]
 }
 
-func (a *Array) Length() int {
+func (a *Array) Size() int {
 	return a.size
 }
 
@@ -58,15 +58,18 @@ func (a *Array) Insert(idx, val int) {
 
 // T(n) = n = O(n)
 // S(n) = 1 = O(1)
-func (a *Array) Delete(idx int) {
+func (a *Array) Delete(idx int) int {
 	if idx < 0 || idx >= a.size {
-		return
+		return ErrorIntValue
 	}
 
+	deleted := a.data[idx]
 	for i := idx; i < a.size-1; i++ {
 		a.data[i] = a.data[i+1]
 	}
 	a.size--
+
+	return deleted
 }
 
 // T(n) = 1+1 = O(1)

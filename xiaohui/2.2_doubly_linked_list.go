@@ -11,7 +11,7 @@ type DoublyLinkdedList struct {
 	Head *DoublyNode
 
 	pLast *DoublyNode
-	Size  int
+	size  int
 }
 
 func NewDoublyLinkdedList() *DoublyLinkdedList {
@@ -22,14 +22,18 @@ func NewDoublyLinkdedList() *DoublyLinkdedList {
 		},
 
 		pLast: nil,
-		Size:  0,
+		size:  0,
 	}
+}
+
+func (dll *DoublyLinkdedList) Size() int {
+	return dll.size
 }
 
 // T(n) = n = O(n)
 // S(n) = 1 = O(1)
 func (dll *DoublyLinkdedList) Get(idx int) *DoublyNode {
-	if idx < 0 || idx >= dll.Size {
+	if idx < 0 || idx >= dll.size {
 		return nil
 	}
 
@@ -44,7 +48,7 @@ func (dll *DoublyLinkdedList) Get(idx int) *DoublyNode {
 // T(n) = 1 = O(1) 	// ignore possible lookup operations
 // S(n) = 1 = O(1)
 func (dll *DoublyLinkdedList) Insert(idx, val int) {
-	if idx < 0 || idx > dll.Size {
+	if idx < 0 || idx > dll.size {
 		return
 	}
 
@@ -65,7 +69,7 @@ func (dll *DoublyLinkdedList) Insert(idx, val int) {
 
 		insertNode.Next = dll.Head.Next
 		dll.Head.Next = insertNode
-	} else if idx == dll.Size {
+	} else if idx == dll.size {
 		// 尾插法
 		insertNode.Prev = dll.pLast
 
@@ -81,13 +85,13 @@ func (dll *DoublyLinkdedList) Insert(idx, val int) {
 		prevNode.Next = insertNode
 	}
 
-	dll.Size++
+	dll.size++
 }
 
 // T(n) = n = O(1) 	// ignore possible lookup operations
 // S(n) = 1 = O(1)
 func (dll *DoublyLinkdedList) Delete(idx int) *DoublyNode {
-	if idx < 0 || idx >= dll.Size {
+	if idx < 0 || idx >= dll.size {
 		return nil
 	}
 
@@ -97,7 +101,7 @@ func (dll *DoublyLinkdedList) Delete(idx int) *DoublyNode {
 
 		deletedNode.Next.Prev = dll.Head
 		dll.Head.Next = deletedNode.Next
-	} else if idx == dll.Size-1 {
+	} else if idx == dll.size-1 {
 		deletedNode = dll.pLast
 
 		prevNode := deletedNode.Prev
@@ -110,7 +114,7 @@ func (dll *DoublyLinkdedList) Delete(idx int) *DoublyNode {
 
 		prevNode.Next = deletedNode.Next
 	}
-	dll.Size--
+	dll.size--
 
 	return deletedNode
 
