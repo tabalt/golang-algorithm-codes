@@ -1,4 +1,4 @@
-package xiaohui
+package chapter_1
 
 import (
 	"testing"

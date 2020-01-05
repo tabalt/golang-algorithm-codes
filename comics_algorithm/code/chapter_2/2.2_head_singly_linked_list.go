@@ -1,4 +1,4 @@
-package xiaohui
+package chapter_2
 
 //singly linked list with head node
 type HeadSinglyLinkdedList struct {

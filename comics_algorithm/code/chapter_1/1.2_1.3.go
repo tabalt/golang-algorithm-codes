@@ -1,4 +1,4 @@
-package xiaohui
+package chapter_1
 
 // T(n) = 1+2+3+...+(n-1)+n = (n+1)*n/2 = 0.5*n^2+0.5n = O(n^2)  # 等差数列求和，高斯算法
 // S(n) = 1 = O(1)

@@ -1,12 +1,12 @@
-package xiaohui
+package chapter_2
 
 import (
 	"testing"
 )
 
-func Test_Singly_Linked_List_All(t *testing.T) {
+func Test_Head_Singly_Linked_List_All(t *testing.T) {
 
-	sll := NewSinglyLinkdedList()
+	hsll := NewHeadSinglyLinkdedList()
 
 	// insert
 
@@ -25,8 +25,8 @@ func Test_Singly_Linked_List_All(t *testing.T) {
 		{999, 6, -999},
 	}
 	for _, ic := range insertCases {
-		sll.Insert(ic.idx, ic.val)
-		find := sll.Get(ic.idx)
+		hsll.Insert(ic.idx, ic.val)
+		find := hsll.Get(ic.idx)
 		if find != nil {
 			if find.Data != ic.expect {
 				t.Errorf("insert item error, index: %d, value: %d, get: %d, expect: %d", ic.idx, ic.val, find.Data, ic.expect)
@@ -50,7 +50,7 @@ func Test_Singly_Linked_List_All(t *testing.T) {
 		{-1, -999},
 	}
 	for _, dc := range deleteCases {
-		node := sll.Delete(dc.idx)
+		node := hsll.Delete(dc.idx)
 		if node != nil {
 			if node.Data != dc.expect {
 				t.Errorf("delete item error, index: %d, get: %d, expect: %d", dc.idx, node.Data, dc.expect)

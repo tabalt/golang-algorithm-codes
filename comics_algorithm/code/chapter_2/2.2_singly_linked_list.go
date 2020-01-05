@@ -1,4 +1,4 @@
-package xiaohui
+package chapter_2
 
 type SinglyNode struct {
 	Data int
