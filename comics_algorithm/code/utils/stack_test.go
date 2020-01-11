@@ -20,13 +20,6 @@ func TestStack_IsEmpty(t *testing.T) {
 	}
 }
 
-func TestStack_Cap(t *testing.T) {
-	myStack := make(Stack, 3)
-	if myStack.Cap() != 3 {
-		t.Error("Failed Stack.Cap")
-	}
-}
-
 func TestStack_Push(t *testing.T) {
 	var mStack Stack
 	mStack.Push(3)

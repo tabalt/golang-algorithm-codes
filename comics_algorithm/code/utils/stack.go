@@ -11,11 +11,7 @@ func (stack Stack) Len() int {
 }
 
 func (stack Stack) IsEmpty() bool {
-	return len(stack) == 0
-}
-
-func (stack Stack) Cap() int {
-	return cap(stack)
+	return stack.Len() == 0
 }
 
 func (stack *Stack) Push(value interface{}) {

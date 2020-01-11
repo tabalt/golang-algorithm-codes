@@ -20,13 +20,6 @@ func TestQueue_IsEmpty(t *testing.T) {
 	}
 }
 
-func TestQueue_Cap(t *testing.T) {
-	myQueue := make(Queue, 3)
-	if myQueue.Cap() != 3 {
-		t.Error("Failed Queue.Cap")
-	}
-}
-
 func TestQueue_In(t *testing.T) {
 	var myQueue Queue
 	myQueue.In(3)

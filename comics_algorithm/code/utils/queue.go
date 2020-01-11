@@ -11,11 +11,7 @@ func (queue Queue) Len() int {
 }
 
 func (queue Queue) IsEmpty() bool {
-	return len(queue) == 0
-}
-
-func (queue Queue) Cap() int {
-	return cap(queue)
+	return queue.Len() == 0
 }
 
 func (queue *Queue) In(value interface{}) {
