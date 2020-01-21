@@ -13,6 +13,12 @@ func main() {
 	fmt.Println(result)
 	fmt.Println("")
 
+	arr = []int{9, 6, 2, 5, 4, 8, 7, 1}
+	fmt.Println(arr)
+	QuickSort2(arr, 0, len(arr)-1)
+	fmt.Println(arr)
+	fmt.Println("")
+
 }
 
 // 快速排序
@@ -40,4 +46,43 @@ func QuickSort(arr []int) []int {
 	result = append(result, QuickSort(right)...)
 
 	return result
+}
+
+func QuickSort2(arr []int, left, right int) {
+	if left < right {
+		mid := partition(arr, left, right)
+		QuickSort2(arr, left, mid-1)
+		QuickSort2(arr, mid+1, right)
+	}
+}
+
+func partition(arr []int, left, right int) int {
+	//选择中轴元素
+	pivot := arr[left]
+	i, j := left+1, right
+	for {
+		//从左向右找到第一个大于pivot的元素位置
+		for i <= j && arr[i] <= pivot {
+			i++
+		}
+		//从右向左找到第一个小于pivot的元素位置
+		for i <= j && arr[j] >= pivot {
+			j--
+		}
+
+		if i >= j {
+			break
+		}
+
+		//交换两个元素的位置，使得左边元素不大于pivot，右边元素补小于pivot
+		tmp := arr[i]
+		arr[i] = arr[j]
+		arr[j] = tmp
+	}
+
+	//使中轴位置处于有序位置
+	arr[left] = arr[j]
+	arr[j] = pivot
+
+	return j
 }
