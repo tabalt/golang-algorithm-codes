@@ -1,1 +1,1 @@
-# algorithm_study
+# Golang Algorithm Codes
