@@ -18,7 +18,7 @@ func (bh *BinaryHeap) Sort(arr []int) {
 	//构建二叉堆
 	bh.Build(arr)
 
-	//循环删除堆顶元素，移动到未排序的尾部，调整产生新对顶
+	//循环删除堆顶元素，移动到未排序的尾部，调整产生新堆顶
 	for i := len(arr) - 1; i >= 0; i-- {
 		tmp := arr[i]
 		arr[i] = arr[0]
