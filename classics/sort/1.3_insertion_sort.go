@@ -17,10 +17,7 @@ func main() {
 // 插入排序（Insertion Sort）
 // 通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入
 // 需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。
-func InsertionSort(arr []int) []int {
-	if len(arr) == 0 {
-		return arr
-	}
+func InsertionSort(arr []int) {
 	current := 0
 	for i := 0; i < len(arr)-1; i++ {
 		current = arr[i+1]
@@ -32,6 +29,4 @@ func InsertionSort(arr []int) []int {
 
 		arr[preIndex+1] = current
 	}
-
-	return arr
 }

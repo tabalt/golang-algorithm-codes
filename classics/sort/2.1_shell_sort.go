@@ -17,7 +17,7 @@ func main() {
 // 希尔排序（Shell Sort）
 // 把记录按一定增量分组，对每组使用直接插入排序算法排序; 随着增量逐渐减少，每组包含的关键词越来越多
 // 当增量减至1时，整个文件恰被分成一组，算法便终止
-func ShellSort(arr []int) []int {
+func ShellSort(arr []int) {
 	length := len(arr)
 	tmp := 0
 	gap := length / 2
@@ -33,6 +33,4 @@ func ShellSort(arr []int) []int {
 		}
 		gap /= 2
 	}
-
-	return arr
 }
