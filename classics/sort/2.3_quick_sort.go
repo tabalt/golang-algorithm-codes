@@ -21,7 +21,7 @@ func main() {
 
 }
 
-// 快速排序
+// 快速排序 (Quick Sort) O(nlogn)
 // 分治法：每一轮挑选一个基准元素，并让比它大的元素移动到数列的一边，比它小的元素移动到另一边
 func QuickSort(arr []int) []int {
 	if len(arr) <= 1 {

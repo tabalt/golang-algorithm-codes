@@ -14,7 +14,7 @@ func main() {
 	fmt.Println("")
 }
 
-//冒泡排序（Bubble Sort）
+//冒泡排序（Bubble Sort） O(n^2)
 func BubbleSort(arr []int) {
 	for i := 0; i < len(arr); i++ {
 		for j := 0; j < len(arr)-1-i; j++ {

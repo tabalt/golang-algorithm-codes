@@ -14,7 +14,7 @@ func main() {
 	fmt.Println("")
 }
 
-// 归并排序（Merge Sort）
+// 归并排序（Merge Sort） O(nlogn)
 // 采用分治法（Divide and Conquer）, 将已有序的子序列合并，得到完全有序的序列
 // 即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为2-路归并。
 func MergeSort(arr []int) []int {

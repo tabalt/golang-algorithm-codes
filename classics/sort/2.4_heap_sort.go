@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"../../comics_algorithm/code/chapter_3"
+	"../../comics_algorithm/chapter_3"
 )
 
 func main() {
@@ -17,9 +17,9 @@ func main() {
 
 }
 
-// 堆排序
+// 堆排序 (Heap Sort)  O(nlogn)
 // 最大堆排出从小到大，最小堆排出从大到小的序列
-// 时间复杂度 O(n) + O(nlogn) = O(logn)
+// 时间复杂度 O(n) + O(nlogn) = O(nlogn)
 func HeapSort(arr []int) {
 	bh := &chapter_3.BinaryHeap{}
 	//构建二叉堆

@@ -14,7 +14,7 @@ func main() {
 	fmt.Println("")
 }
 
-// 插入排序（Insertion Sort）
+// 插入排序（Insertion Sort） O(n^2)
 // 通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入
 // 需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。
 func InsertionSort(arr []int) {
