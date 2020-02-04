@@ -18,15 +18,14 @@ func main() {
 // 通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入
 // 需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。
 func InsertionSort(arr []int) {
-	current := 0
-	for i := 0; i < len(arr)-1; i++ {
-		current = arr[i+1]
-		preIndex := i
-		for preIndex >= 0 && current < arr[preIndex] {
-			arr[preIndex+1] = arr[preIndex]
-			preIndex--
+	for i := 1; i < len(arr); i++ {
+		current := arr[i]
+		preIdx := i - 1
+		for preIdx >= 0 && arr[preIdx] > current {
+			arr[preIdx+1] = arr[preIdx]
+			preIdx--
 		}
 
-		arr[preIndex+1] = current
+		arr[preIdx+1] = current
 	}
 }
